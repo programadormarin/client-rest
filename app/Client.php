@@ -47,8 +47,11 @@ namespace app {
 			$this->initCurl($id);
 			if (!is_null($params)) {
 				$this->url .=  "?";
-				foreach ($params as $nome => $valor)
-					$this->url .=  "$nome=$valor";
+				foreach ($params as $nome => $valor) {
+					$valor = str_replace(' ', '', $valor);
+					$this->url .=  "$nome=$valor&";
+				}
+				$this->url = substr($this->url, 0, -1);
 			}
 			$this->getResponse();
 		}

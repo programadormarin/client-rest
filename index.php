@@ -1,4 +1,6 @@
 <?php
+var_dump('<pre>', $_SERVER);
+die;
 use app\Client;
 require_once 'app/Client.php';
 
